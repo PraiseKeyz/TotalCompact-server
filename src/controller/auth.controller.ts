@@ -35,7 +35,7 @@ export const createUser = async (req: Request, res: Response) => {
 
     await user.save();
 
-    await sendVerificationEmail(user, verificationToken);
+    // await sendVerificationEmail(user, verificationToken);
 
     const { password: _, ...isWithoutPassword } = user.toObject();
     logger.info("User signup completed successfully", { userId: user._id });
@@ -82,9 +82,8 @@ export const loginUser = async (req: Request, res: Response) => {
       res,
       status: 200,
       message: "User logged in successfully",
-      data: {user, token },
+      data: { user, token },
     });
-
   } catch (error) {
     logger.error("Request failed - Internal server error", {
       error: error instanceof Error ? error.message : "Unknown error",

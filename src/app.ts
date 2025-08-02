@@ -6,7 +6,6 @@ import routes from "./router/base.router";
 import { errorHandler } from "./middleware/errorhandler";
 import { appConfig } from "./config/app.config";
 import { log } from "./config/logger";
-import path from 'path'
 
 dotenv.config();
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(helmet());
 
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Removed local uploads static serving - now using Cloudflare R2
 
 app.get("/api/health", (req: Request, res: Response) => {
   const uptime = process.uptime();

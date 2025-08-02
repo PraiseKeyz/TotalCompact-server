@@ -1,4 +1,4 @@
-import { Document } from 'mongoose';
+import { Document } from "mongoose";
 
 interface ILocation {
   address: string;
@@ -21,8 +21,13 @@ interface IProject extends Document {
   name: string;
   description: string;
   location: ILocation;
-  status: 'Planning' | 'Under Construction' | 'Completed' | 'On Hold' | 'Cancelled';
-  projectType: 'Residential' | 'Commercial' | 'Mixed-Use' | 'Industrial';
+  status:
+    | "Planning"
+    | "Under Construction"
+    | "Completed"
+    | "On Hold"
+    | "Cancelled";
+  projectType: "Residential" | "Commercial" | "Mixed-Use" | "Industrial";
   estimatedCompletionDate?: Date;
   totalUnits?: number;
   priceRange?: IPriceRange;

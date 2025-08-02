@@ -25,5 +25,4 @@ router.post("/reset-password", resetPassword);
 //  User Profile (Authenticated)
 router.get("/me", authenticate, getUserProfile);
 
-
 export default router;
