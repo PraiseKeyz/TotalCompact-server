@@ -5,7 +5,7 @@ import {
   getContactById,
   deleteContact,
 } from "../controller/contact.controller";
-// import { authenticate } from "../middleware/auth.middleware";
+import { authenticate } from "../middleware/auth.middleware";
 
 const router = express.Router();
 
@@ -13,8 +13,8 @@ const router = express.Router();
 router.post("/", createContact);
 
 // Admin routes (protected - you might want to add auth middleware later)
-router.get("/", getAllContacts);
-router.get("/:id", getContactById);
-router.delete("/:id", deleteContact);
+router.get("/", authenticate, getAllContacts);
+router.get("/:id", authenticate, getContactById);
+router.delete("/:id", authenticate, deleteContact);
 
 export default router; 
